@@ -1,0 +1,17 @@
+.text-4xl {
+  font-size: 3rem;
+}
+
+@media (max-width: 450px) {
+  .justify-between.items-center {
+    flex-direction: column;
+    padding-left: 20px;
+  }
+  .justify-between.items-center>.mt-4 {
+    margin-top: 0px;
+  }
+}
+.mt-10{
+  margin-left: -150px;
+  margin-top: -20px;
+}
