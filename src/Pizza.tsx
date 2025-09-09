@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Rodal from "rodal";
 import PrizeModal from "./PrizeModal";
 
