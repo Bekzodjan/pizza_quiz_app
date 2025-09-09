@@ -79,13 +79,13 @@ const showAnswer = () => {
 
 
 
-useEffect(() => {
-  if(questions.filter(item=>!item.completed).length === 0){
-    alert(`Quiz finished! Your final score is ${score}`);
-    setQuestions(prev => prev.map(item => ({...item, completed: false})));
-    setScore("");
-  }
-}, [questions, score])
+// useEffect(() => {
+//   if(questions.filter(item=>!item.completed).length === 0){
+//     alert(`Quiz finished! Your final score is ${score}`);
+//     setQuestions(prev => prev.map(item => ({...item, completed: false})));
+//     setScore("");
+//   }
+// }, [questions, score])
 
 
 
@@ -131,7 +131,7 @@ useEffect(() => {
         >
           <h2 className="text-4xl mb-4">Answer</h2>
           <p className="mb-4">{question.a}</p>
-          <div className="flex gap-2 justify-content-center">
+          <div className="flex gap-2 justify-center">
             <button
               onClick={() => {
                 setVisible(false);
