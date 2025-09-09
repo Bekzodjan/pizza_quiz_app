@@ -14,8 +14,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rodal": "^2.1.0",
-    "tailwindcss": "^4.1.13",
-    "vite-plugin-tailwindcss": "^0.0.0-0"
+    "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
