@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Rodal from "rodal";
+import PrizeModal from "./PrizeModal";
 
 type PizzaProps = {
-  score: number;
-  setScore: (score: number) => void;
+  score: string;
+  setScore: (score: string) => void;
 };
 
 const Pizza = ({ score, setScore }: PizzaProps) => {
@@ -18,44 +19,54 @@ const Pizza = ({ score, setScore }: PizzaProps) => {
           q: "Which country is the birthplace of pizza?",
       a: "Italy",
       completed: false,
+      prize: "present",
     },
     {
         q: "How many main ingredients does Margherita pizza have?",
       a: "3 (tomato, mozzarella, basil)",
       completed: false,
+      prize: "present",
     },
     {
       q: "What is the main meat ingredient in Pepperoni pizza?",
       a: "Pepperoni sausage",
       completed: false,
+      prize: "present",
     },
     {
         q: "Which city is considered the 'capital of pizza'?",
         a: "Naples",
         completed: false,
+        prize: "present",
     },
     {
         q: "What kind of oven is traditionally used to bake pizza?",
         a: "Wood-fired oven",
         completed: false,
+        prize: "present",
     },
     {
         q: "How is pizza usually served in Italy?",
         a: "Not sliced, eaten with knife and fork",
         completed: false,
+        prize: "present",
     },
     {
         q: "What are the basic ingredients for pizza dough?",
         a: "Flour, water, salt, yeast, olive oil",
         completed: false,
+        prize: "present",
     },
     {
         q: "What is the most popular type of pizza?",
         a: "Margherita",
         completed: false,
+        prize: "present",
     },
   ]);
   const [question, setQuestion] = useState({ q: "", a: "" });
+
+  const [isOpen, setIsOpen] = useState(false);
   
   const handleClick = (i: number) => {
     setVisible(true);
@@ -72,7 +83,7 @@ useEffect(() => {
   if(questions.filter(item=>!item.completed).length === 0){
     alert(`Quiz finished! Your final score is ${score}`);
     setQuestions(prev => prev.map(item => ({...item, completed: false})));
-    setScore(0);
+    setScore("");
   }
 }, [questions, score])
 
@@ -127,9 +138,10 @@ useEffect(() => {
                 setVisibleQuestion(true);
                 setScore(score + 125);
                 setQuestions((prev) =>
-                  prev.map((item) =>
-                    item.q === question.q ? { ...item, completed: true } : item
-                  )
+                  prev.map((item) =>{
+                    setScore(item.prize)
+                    return item.q === question.q ? { ...item, completed: true } : item
+              })
                 );
               }}
               className="bg-green-500 text-white px-4 py-2 rounded"
@@ -153,6 +165,12 @@ useEffect(() => {
           </div>
         </div>
       </Rodal>
+
+      <PrizeModal
+        visible={isOpen}
+        onClose={() => setIsOpen(false)}
+        prize={score}
+      />
     </div>
   );
 };

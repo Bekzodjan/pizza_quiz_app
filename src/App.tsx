@@ -4,7 +4,7 @@ import Pizza from "./Pizza"
 import { useState } from "react";
 
 function App() {
-    const [score, setScore] = useState(0);
+    const [score, setScore] = useState("");
   return (
     <div className=" bg-orange-100 h-screen pt-12">
       <div className="flex justify-between items-center pl-154 px-5 @max-md:flex-column">
