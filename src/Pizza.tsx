@@ -9,7 +9,7 @@ type PizzaProps = {
 const Pizza = ({ score, setScore }: PizzaProps) => {
     
     const slices = 8; // nechta bo'lak bo'lsin
-    const sliceImg = "src/assets/pizza-slice2.png"; // bo'lak rasmi
+    const sliceImg = "https://i.pinimg.com/originals/75/a3/6b/75a36b61023f36dba5983c9d299409c5.png"; // bo'lak rasmi
     const [isVisible, setVisible] = useState(false);
     const [isVisibleQuestion, setVisibleQuestion] = useState(true);
     
