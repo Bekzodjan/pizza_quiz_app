@@ -136,7 +136,7 @@ useEffect(() => {
               onClick={() => {
                 setVisible(false);
                 setVisibleQuestion(true);
-                setScore(score + 125);
+                setIsOpen(true);
                 setQuestions((prev) =>
                   prev.map((item) =>{
                     setScore(item.prize)
